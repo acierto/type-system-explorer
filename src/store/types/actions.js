@@ -1,4 +1,4 @@
-import api from 'src/api/fixtures'
+import api from '../../api/fixtures'
 
 export const getTypes = ({commit}) => {
     api.getTypes(types => {
