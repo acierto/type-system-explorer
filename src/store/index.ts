@@ -6,13 +6,11 @@ import * as actions from './types/actions'
 
 Vue.use(Vuex);
 
-const debug = process.env.NODE_ENV !== 'production';
-
 export default new Vuex.Store({
     actions,
     // getters,
     modules: {
         types
     },
-    strict: debug
+    strict: true
 })

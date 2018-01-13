@@ -8,12 +8,13 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import Vue from 'vue';
     import {mapActions, mapState} from 'vuex'
 
-    export default {
+    export default Vue.extend({
         computed: mapState({
-            allTypes: state => state.types.all
+            allTypes: (state: any) => state.types.all
         }),
         methods: mapActions([
             'getTypes'
@@ -21,7 +22,7 @@
         created() {
             this.getTypes()
         }
-    }
+    });
 </script>
 
 <style module>
