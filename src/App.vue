@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import TypeList from '@/components/TypeList'
+    import TypeList from './components/TypeList.vue'
 
     export default {
         components: {TypeList}
