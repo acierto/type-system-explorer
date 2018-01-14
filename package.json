@@ -4,12 +4,6 @@
   "description": "Type System Explorer for XebiaLabs products",
   "author": "Bogdan Nechyporenko <bnechyporenko@xebialabs.com>",
   "license": "MIT",
-  "scripts": {
-    "dev": "babel-node --presets es2015 build/dev-server.js",
-    "start": "babel-node --presets es2015 build/dev-server.js",
-    "build": "babel-node --presets es2015 build/build.js",
-    "lint": "eslint --ext .js,.vue src"
-  },
   "dependencies": {
     "vue": "^2.3.2",
     "vue-router": "^3.0.1",

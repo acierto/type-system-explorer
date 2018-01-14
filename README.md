@@ -1,6 +1,6 @@
 # type-system-explorer
 
-> Type System Explorer for Xebia Lab products
+> Type System Explorer for XebiaLabs products
 
 ## Build Setup
 
@@ -8,9 +8,7 @@
 # install dependencies
 yarn
 
-# serve with hot reload at localhost:8080
-yarn run dev
+# serve with hot reload at localhost:2222
+gulp
 
-# build for production with minification
-yarn run build
 ```
