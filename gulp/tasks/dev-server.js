@@ -7,6 +7,7 @@ import webpackDevConfig from '../../build/webpack.dev.conf';
 const target = 'http://localhost:4519';
 
 const proxy = [{
+    auth: 'admin:admin',
     changeOrigin: true,
     context: [
         '/deployit'

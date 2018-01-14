@@ -1,7 +1,10 @@
-import xldTypes from '../data/xld-types.json';
+import axios from 'axios';
 
 export default {
     getTypes(cb: any) {
-        setTimeout(() => cb(xldTypes), 200)
+        axios.get('/deployit/metadata/type')
+            .then(function (response) {
+                cb(response.data);
+            });
     }
 }
