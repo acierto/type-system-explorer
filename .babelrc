@@ -1,26 +1,10 @@
 {
   "presets": [
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ],
-    "stage-2"
+    "es2015", "stage-0"
   ],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    ["babel-plugin-root-import"]
   ],
-  "comments": false,
-  "env": {
-    "test": {
-      "presets": [
-        "env",
-        "stage-2"
-      ],
-      "plugins": [
-        "istanbul"
-      ]
-    }
-  }
+  "comments": false
 }
