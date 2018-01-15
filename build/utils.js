@@ -15,10 +15,6 @@ exports.cssLoaders = function (options) {
     const cssLoader = {
         loader: 'css-loader',
         options: {
-            cssModules: {
-                localIdentName: '[path][name]---[local]---[hash:base64:5]',
-                camelCase: true
-            },
             minimize: process.env.NODE_ENV === 'production',
             sourceMap: options.sourceMap
         }
