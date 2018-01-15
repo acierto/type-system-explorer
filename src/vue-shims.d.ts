@@ -9,3 +9,4 @@ declare module "*.json" {
 }
 
 declare module 'ramda';
+declare module 'bootstrap-vue';

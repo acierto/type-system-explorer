@@ -1,5 +1,11 @@
 <template>
     <div :class="$style['type-column']">
+        <div :class="$style['type-column-title']">Types</div>
+        <div :class="$style['search']">
+            <i class="glyphicon glyphicon-search"></i>
+            <input type="text" placeholder="Search">
+            <i class="glyphicon glyphicon-filter"></i>
+        </div>
         <div :class="$style['type-row']" v-for="t in allTypes">
             <span :title="t.type">
                 {{t.type}}
@@ -25,12 +31,43 @@
     });
 </script>
 
+<style>
+    .glyphicon-search {
+        color: grey;
+        font-size: 24px;
+        left: 10px;
+        position: absolute;
+        top: 10px;
+    }
+</style>
+
 <style module>
+    .search {
+        color: grey;
+        display: block;
+        height: 40px;
+        margin-top: 5px;
+        position: relative;
+    }
+
+    .search input {
+        font-size: 13px;
+        margin: 0 0 0 5px;
+        padding: 9px 10px 9px 28px;
+        width: 211px;
+    }
 
     .type-column {
         overflow: auto;
         width: 220px;
         flex: 1 100%;
+    }
+
+    .type-column-title {
+        font-weight: bold;
+        line-height: 30px;
+        text-align: center;
+        width: auto;
     }
 
     .type-row {
