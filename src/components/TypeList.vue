@@ -6,10 +6,12 @@
             <input type="text" placeholder="Search">
             <i class="glyphicon glyphicon-filter"></i>
         </div>
-        <div :class="$style['type-row']" v-for="t in allTypes">
+        <div :class="$style['type-result-column']">
+            <div :class="$style['type-row']" v-for="t in allTypes">
             <span :title="t.type">
                 {{t.type}}
             </span>
+            </div>
         </div>
     </div>
 </template>
@@ -58,12 +60,19 @@
     }
 
     .type-column {
-        overflow: auto;
+        display: flex;
+        flex-flow: column;
+        height: inherit;
         width: 220px;
+    }
+
+    .type-result-column {
         flex: 1 100%;
+        overflow: auto;
     }
 
     .type-column-title {
+        display: inline-block;
         font-weight: bold;
         line-height: 30px;
         text-align: center;
