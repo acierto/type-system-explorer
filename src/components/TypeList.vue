@@ -2,9 +2,9 @@
     <div :class="$style['type-column']">
         <div :class="$style['type-column-title']">Types</div>
         <div :class="$style['search']">
-            <i class="glyphicon glyphicon-search"></i>
+            <i i class="fa fa-search" :class="$style['search-icon']" aria-hidden="true"></i>
             <input type="text" placeholder="Search">
-            <i class="glyphicon glyphicon-filter"></i>
+            <i class="fa fa-filter" :class="$style['filter-icon']" aria-hidden="true"></i>
         </div>
         <div :class="$style['type-result-column']">
             <div :class="$style['type-row']" v-for="t in allTypes">
@@ -33,17 +33,24 @@
     });
 </script>
 
-<style>
-    .glyphicon-search {
+<style module>
+    .search-icon {
         color: grey;
         font-size: 24px;
         left: 10px;
         position: absolute;
-        top: 10px;
+        top: 8px;
     }
-</style>
 
-<style module>
+    .filter-icon {
+        color: #337ab7;
+        cursor: pointer;
+        font-size: 24px;
+        left: 185px;
+        position: absolute;
+        top: 8px;
+    }
+
     .search {
         color: grey;
         display: block;
