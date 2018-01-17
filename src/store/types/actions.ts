@@ -3,6 +3,10 @@ import {Commit, Action} from 'vuex'
 import api from '../../api/fixtures'
 import debounce from 'debounce';
 
+let debounceSearch: any;
+
+const DEBOUNCE_WAIT_TIME = 300;
+
 export interface State {
     searchToken: '',
     type: any[]
@@ -16,8 +20,14 @@ export const getTypes: Action<State, any> = (context: { commit: Commit }) => {
 };
 
 export const changeSearchToken: Action<State, any> = (context: { commit: Commit }, event: any) => {
+    if (debounceSearch) {
+        debounceSearch.clear();
+    }
+
     function action() {
         context.commit('CHANGE_SEARCH_TOKEN', event.target.value);
     }
-    debounce(action, 500)();
+
+    debounceSearch = debounce(action, DEBOUNCE_WAIT_TIME);
+    debounceSearch();
 };
