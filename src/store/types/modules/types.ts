@@ -20,6 +20,8 @@ const mutations = {
             const filterItem = (item: string) => item.toLowerCase().indexOf(token.toLowerCase()) > -1;
             const matched = R.propSatisfies(filterItem, 'type');
             state.displayed = R.filter(matched, state.all);
+        } else {
+            state.displayed = state.all;
         }
     },
     RECEIVE_TYPES(state: State, types: any) {
