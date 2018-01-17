@@ -19,7 +19,7 @@ export const getTypes: Action<State, any> = (context: { commit: Commit }) => {
     })
 };
 
-export const changeSearchToken: Action<State, any> = (context: { commit: Commit }, event: any) => {
+export const searchByToken: Action<State, any> = (context: { commit: Commit }, event: any) => {
     if (debounceSearch) {
         debounceSearch.clear();
     }
@@ -30,4 +30,8 @@ export const changeSearchToken: Action<State, any> = (context: { commit: Commit 
 
     debounceSearch = debounce(action, DEBOUNCE_WAIT_TIME);
     debounceSearch();
+};
+
+export const selectType: Action<State, any> = (context: { commit: Commit }, event: any) => {
+    context.commit('SELECT_TYPE', event.target.attributes['data-value'].value);
 };

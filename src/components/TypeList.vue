@@ -3,11 +3,11 @@
         <div :class="$style['type-column-title']">Types</div>
         <div :class="$style['search']">
             <i i class="fa fa-search" :class="$style['search-icon']" aria-hidden="true"></i>
-            <input type="text" placeholder="Search" @input="changeSearchToken">
+            <input type="text" placeholder="Search" @input="searchByToken">
             <i class="fa fa-filter" :class="$style['filter-icon']" aria-hidden="true"></i>
         </div>
         <div :class="$style['type-result-column']">
-            <div :class="$style['type-row']" v-for="t in allTypes">
+            <div :class="$style['type-row']" v-for="t in allTypes" @click="selectType" :data-value="t.type">
             <span :title="t.type">
                 {{t.type}}
             </span>
@@ -26,7 +26,8 @@
         }),
         methods: mapActions([
             'getTypes',
-            'changeSearchToken'
+            'searchByToken',
+            'selectType'
         ]),
         created() {
             this.getTypes()

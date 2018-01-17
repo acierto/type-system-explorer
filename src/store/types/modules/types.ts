@@ -3,12 +3,14 @@ import * as R from 'ramda';
 export interface State {
     all: any[],
     displayed: any[],
+    selectedType: string,
     token: string
 }
 
 const state: State = {
     all: [],
     displayed: [],
+    selectedType: '',
     token: ''
 };
 
@@ -27,6 +29,9 @@ const mutations = {
     RECEIVE_TYPES(state: State, types: any) {
         state.all = types;
         state.displayed = types;
+    },
+    SELECT_TYPE(state: State, type: string) {
+        state.selectedType = type;
     }
 };
 
