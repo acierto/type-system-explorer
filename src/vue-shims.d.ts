@@ -8,5 +8,6 @@ declare module "*.json" {
     export default value;
 }
 
-declare module 'ramda';
 declare module 'bootstrap-vue';
+declare module 'debounce';
+declare module 'ramda';

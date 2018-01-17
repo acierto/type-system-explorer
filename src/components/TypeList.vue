@@ -3,7 +3,7 @@
         <div :class="$style['type-column-title']">Types</div>
         <div :class="$style['search']">
             <i i class="fa fa-search" :class="$style['search-icon']" aria-hidden="true"></i>
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search" @input="changeSearchToken">
             <i class="fa fa-filter" :class="$style['filter-icon']" aria-hidden="true"></i>
         </div>
         <div :class="$style['type-result-column']">
@@ -22,10 +22,11 @@
 
     export default Vue.extend({
         computed: mapState({
-            allTypes: (state: any) => state.types.all
+            allTypes: (state: any) => state.types.displayed
         }),
         methods: mapActions([
-            'getTypes'
+            'getTypes',
+            'changeSearchToken'
         ]),
         created() {
             this.getTypes()
