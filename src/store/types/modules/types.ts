@@ -2,14 +2,16 @@ import * as R from 'ramda';
 
 export interface State {
     all: any[],
-    displayed: any[],
-    selectedType: string,
+    displayedTypes: any[],
+    selectedProperty: any,
+    selectedType: any,
     token: string
 }
 
 const state: State = {
     all: [],
-    displayed: [],
+    displayedTypes: [],
+    selectedProperty: '',
     selectedType: '',
     token: ''
 };
@@ -21,17 +23,20 @@ const mutations = {
         if (token) {
             const filterItem = (item: string) => item.toLowerCase().indexOf(token.toLowerCase()) > -1;
             const matched = R.propSatisfies(filterItem, 'type');
-            state.displayed = R.filter(matched, state.all);
+            state.displayedTypes = R.filter(matched, state.all);
         } else {
-            state.displayed = state.all;
+            state.displayedTypes = state.all;
         }
     },
     RECEIVE_TYPES(state: State, types: any) {
         state.all = types;
-        state.displayed = types;
+        state.displayedTypes = types;
+    },
+    SELECT_PROPERTY(state: State, propertyName: string) {
+        state.selectedProperty = propertyName;
     },
     SELECT_TYPE(state: State, type: string) {
-        state.selectedType = type;
+        state.selectedType = R.find(R.propEq('type', type), state.all);
     }
 };
 

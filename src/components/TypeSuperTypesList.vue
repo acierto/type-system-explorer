@@ -1,10 +1,10 @@
 <template>
     <div :class="$style['type-column']">
-        <div :class="$style['type-column-title']">Properties</div>
+        <div :class="$style['type-column-title']">Superclasses</div>
         <div :class="[$style['type-result-column']]">
-            <div :class="$style['type-row']" v-for="p in properties" @click="selectProperty" :data-value="p.name">
-            <span :title="p.name">
-                {{p.name}}
+            <div :class="$style['type-row']" v-for="s in supertypes">
+            <span :title="s">
+                {{s}}
             </span>
             </div>
         </div>
@@ -17,11 +17,8 @@
 
     export default Vue.extend({
         computed: mapGetters({
-            properties: 'getSelectedTypeProperties'
-        }),
-        methods: mapActions([
-            'selectProperty'
-        ])
+            supertypes: 'getSelectedTypeSuperTypes'
+        })
     });
 </script>
 
@@ -47,8 +44,8 @@
     }
 
     .type-row {
-        border: 1px solid #398439;
-        color: #398439;
+        border: 1px solid #5bc0de;
+        color: #5bc0de;
         font-weight: bold;
         font-size: 12px;
         margin: 5px;
@@ -61,23 +58,8 @@
         background-color: #fff;
     }
 
-    .type-row:hover {
-        background-color: #398439;
-        cursor: pointer;
-    }
-
     .type-row span {
-        color: #449d44;
+        color: #5bc0de;
         font-weight: bold;
-    }
-
-    .type-row-selected {
-        background-color: #337ab7;
-        cursor: pointer;
-    }
-
-    .type-row:hover span {
-        color: #fff;
-        cursor: pointer;
     }
 </style>

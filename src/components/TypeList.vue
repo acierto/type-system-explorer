@@ -7,7 +7,12 @@
             <i class="fa fa-filter" :class="$style['filter-icon']" aria-hidden="true"></i>
         </div>
         <div :class="$style['type-result-column']">
-            <div :class="$style['type-row']" v-for="t in allTypes" @click="selectType" :data-value="t.type">
+            <div
+                    @click="selectType"
+                    :class="[$style['type-row'], {[$style['type-row-selected']]: selectedTypeName === t.type}]"
+                    :data-value="t.type"
+                    v-for="t in allTypes"
+            >
             <span :title="t.type">
                 {{t.type}}
             </span>
@@ -22,7 +27,8 @@
 
     export default Vue.extend({
         computed: mapState({
-            allTypes: (state: any) => state.types.displayed
+            allTypes: (state: any) => state.types.displayedTypes,
+            selectedTypeName: (state: any) => state.types.selectedType.type
         }),
         methods: mapActions([
             'getTypes',
@@ -75,17 +81,17 @@
         width: 220px;
     }
 
-    .type-result-column {
-        flex: 1 100%;
-        overflow: auto;
-    }
-
     .type-column-title {
         display: inline-block;
         font-weight: bold;
         line-height: 30px;
         text-align: center;
         width: auto;
+    }
+
+    .type-result-column {
+        flex: 1 100%;
+        overflow: auto;
     }
 
     .type-row {
@@ -116,6 +122,14 @@
     .type-row:hover span {
         color: #fff;
         cursor: pointer;
+    }
+
+    .type-row-selected {
+        background-color: #337ab7;
+    }
+
+    .type-row-selected span {
+        color: #fff;
     }
 
 </style>
