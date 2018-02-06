@@ -11,9 +11,8 @@
                     @click="selectType"
                     :class="[$style['type-row'], {[$style['type-row-selected']]: selectedTypeName === t.type}]"
                     :data-value="t.type"
-                    v-for="t in allTypes"
-            >
-            <span :title="t.type">
+                    v-for="t in allTypes">
+            <span :data-value="t.type" :title="t.type">
                 {{t.type}}
             </span>
             </div>
