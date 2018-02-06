@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style['type-column']" v-if="isTemplateDisplayed">
+    <div :class="$style['type-column']">
         <div :class="$style['type-column-title']">Interfaces</div>
         <div :class="[$style['type-result-column']]">
             <div :class="$style['type-row']" v-for="i in interfaces">
@@ -13,12 +13,11 @@
 
 <script lang="ts">
     import Vue from 'vue';
-    import {mapActions, mapGetters} from 'vuex'
+    import {mapGetters} from 'vuex';
 
     export default Vue.extend({
         computed: mapGetters({
-            interfaces: 'getSelectedTypeInterfaces',
-            isTemplateDisplayed: 'hasSelectedType'
+            interfaces: 'getSelectedTypeInterfaces'
         })
     });
 </script>

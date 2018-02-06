@@ -36,6 +36,7 @@ const mutations = {
         state.selectedProperty = propertyName;
     },
     SELECT_TYPE(state: State, type: string) {
+        state.selectedProperty = '';
         state.selectedType = R.find(R.propEq('type', type), state.all);
     }
 };

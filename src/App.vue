@@ -2,17 +2,21 @@
     <div id="app">
         <type-list></type-list>
         <type-properties-list></type-properties-list>
-        <right-layout></right-layout>
+        <type-info-layout></type-info-layout>
+        <property-info-layout></property-info-layout>
     </div>
 </template>
 
 <script>
     import TypeList from './components/TypeList.vue'
     import TypePropertiesList from './components/TypePropertiesList.vue'
-    import RightLayout from './layouts/RightLayout'
+    import TypeInfoLayout from './layouts/TypeInfoLayout'
+    import PropertyInfoLayout from './layouts/PropertyInfoLayout';
 
     export default {
-        components: {TypeList, TypePropertiesList, RightLayout}
+        components: {
+            PropertyInfoLayout, TypeList, TypePropertiesList, TypeInfoLayout
+        }
     }
 </script>
 

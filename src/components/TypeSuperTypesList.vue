@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style['type-column']" v-if="isTemplateDisplayed">
+    <div :class="$style['type-column']">
         <div :class="$style['type-column-title']">Superclasses</div>
         <div :class="[$style['type-result-column']]">
             <div :class="$style['type-row']" v-for="s in supertypes">
@@ -17,7 +17,6 @@
 
     export default Vue.extend({
         computed: mapGetters({
-            isTemplateDisplayed: 'hasSelectedType',
             supertypes: 'getSelectedTypeSuperTypes'
         })
     });

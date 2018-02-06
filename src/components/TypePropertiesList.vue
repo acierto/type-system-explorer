@@ -2,10 +2,14 @@
     <div :class="$style['type-column']" v-if="isTemplateDisplayed">
         <div :class="$style['type-column-title']">Properties</div>
         <div :class="[$style['type-result-column']]">
-            <div :class="$style['type-row']" v-for="p in properties" @click="selectProperty" :data-value="p.name">
-            <span :title="p.name">
-                {{p.name}}
-            </span>
+            <div
+                :class="[$style['property-row'], {[$style['property-row-selected']]: selectedPropertyName === p.name}]"
+                :data-value="p.name"
+                v-for="p in properties"
+                @click="selectProperty">
+                <span :data-value="p.name" :title="p.name">
+                    {{p.name}}
+                </span>
             </div>
         </div>
     </div>
@@ -18,7 +22,8 @@
     export default Vue.extend({
         computed: mapGetters({
             isTemplateDisplayed: 'hasSelectedType',
-            properties: 'getSelectedTypeProperties'
+            properties: 'getSelectedTypeProperties',
+            selectedPropertyName: 'getSelectedPropertyName'
         }),
         methods: mapActions([
             'selectProperty'
@@ -47,7 +52,7 @@
         overflow: auto;
     }
 
-    .type-row {
+    .property-row {
         border: 1px solid #398439;
         color: #398439;
         font-weight: bold;
@@ -62,23 +67,26 @@
         background-color: #fff;
     }
 
-    .type-row:hover {
+    .property-row:hover {
         background-color: #398439;
         cursor: pointer;
     }
 
-    .type-row span {
+    .property-row span {
         color: #449d44;
         font-weight: bold;
     }
 
-    .type-row-selected {
-        background-color: #337ab7;
+    .property-row:hover span {
+        color: #fff;
         cursor: pointer;
     }
 
-    .type-row:hover span {
-        color: #fff;
-        cursor: pointer;
+    .property-row-selected {
+        background-color: #449d44;
+    }
+
+    .property-row-selected span {
+        color: white;
     }
 </style>
