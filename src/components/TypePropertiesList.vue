@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style['type-column']">
+    <div :class="$style['type-column']" v-if="isTemplateDisplayed">
         <div :class="$style['type-column-title']">Properties</div>
         <div :class="[$style['type-result-column']]">
             <div :class="$style['type-row']" v-for="p in properties" @click="selectProperty" :data-value="p.name">
@@ -17,6 +17,7 @@
 
     export default Vue.extend({
         computed: mapGetters({
+            isTemplateDisplayed: 'hasSelectedType',
             properties: 'getSelectedTypeProperties'
         }),
         methods: mapActions([

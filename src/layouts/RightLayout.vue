@@ -1,8 +1,8 @@
 <template>
     <div :class="$style['right-layout']">
         <div :class="$style['top-panel']">
-            <type-super-types-list></type-super-types-list>
             <type-interfaces-list></type-interfaces-list>
+            <type-super-types-list></type-super-types-list>
         </div>
         <additional-type-information></additional-type-information>
     </div>

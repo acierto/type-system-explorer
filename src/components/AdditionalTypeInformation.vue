@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style['additional-type-information']">
+    <div :class="$style['additional-type-information']" v-if="isTemplateDisplayed">
         <div :class="$style['title']">Additional type information</div>
         <div :class="$style['properties-table']">
             <div :class="$style['properties-table-content']">
@@ -23,6 +23,7 @@
     export default Vue.extend({
         computed: mapGetters({
             additionalTypeInformation: 'getAdditionalTypeInformation',
+            isTemplateDisplayed: 'hasSelectedType'
         })
     });
 </script>
@@ -35,6 +36,7 @@
         height: 50%;
         margin: 15px;
         max-height: 50%;
+        min-height: 50%;
         padding: 0 15px;
         width: auto;
     }
