@@ -23,7 +23,7 @@
 
 <script lang="ts">
     import Vue from 'vue';
-    import {mapActions, mapState} from 'vuex'
+    import {mapActions, mapState} from 'vuex';
 
     export default Vue.extend({
         computed: mapState({
@@ -110,7 +110,7 @@
     }
 
     .type-row:hover {
-        background-color: #337ab7;
+        background-color: #286090;
         cursor: pointer;
     }
 
@@ -125,6 +125,10 @@
     }
 
     .type-row-selected {
+        background-color: #337ab7;
+    }
+
+    .type-row-selected:hover {
         background-color: #337ab7;
     }
 

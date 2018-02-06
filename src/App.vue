@@ -2,19 +2,17 @@
     <div id="app">
         <type-list></type-list>
         <type-properties-list></type-properties-list>
-        <type-interfaces-list></type-interfaces-list>
-        <type-super-types-list></type-super-types-list>
+        <right-layout></right-layout>
     </div>
 </template>
 
 <script>
     import TypeList from './components/TypeList.vue'
-    import TypeInterfacesList from './components/TypeInterfacesList.vue'
     import TypePropertiesList from './components/TypePropertiesList.vue'
-    import TypeSuperTypesList from './components/TypeSuperTypesList.vue'
+    import RightLayout from './layouts/RightLayout'
 
     export default {
-        components: {TypeList, TypeInterfacesList, TypePropertiesList, TypeSuperTypesList}
+        components: {TypeList, TypePropertiesList, RightLayout}
     }
 </script>
 
