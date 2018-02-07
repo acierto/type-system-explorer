@@ -8,7 +8,8 @@ export const getAdditionalTypeInformation = (state: any) => {
     return selectedType && R.omit(['interfaces', 'properties', 'superTypes'], selectedType);
 };
 
-export const getSelectedPropertyName = (state: any) => R.pathOr([], ['types', 'selectedProperty'], state);
+export const getSelectedProperty = (state: any) => R.pathOr([], ['types', 'selectedProperty'], state);
+export const getSelectedPropertyName = (state: any) => R.pathOr([], ['types', 'selectedProperty', 'name'], state);
 
 export const getSelectedTypeInterfaces = (state: any) => R.pathOr([], ['types', 'selectedType', 'interfaces'], state);
 export const getSelectedTypeProperties = (state: any) => R.pathOr([], ['types', 'selectedType', 'properties'], state);
