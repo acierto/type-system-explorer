@@ -57,7 +57,7 @@
         flex-flow: column nowrap;
         flex-grow: 1;
         flex-shrink: 1;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .property-details-content {

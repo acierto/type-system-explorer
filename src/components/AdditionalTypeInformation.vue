@@ -3,7 +3,7 @@
         <div :class="$style['title']">Additional type information</div>
         <div :class="$style['properties-table']">
             <div :class="$style['properties-table-content']">
-                <div v-for="(value, key) in additionalTypeInformation" :class="$style['table-property']">
+                <div v-for="{key, value} in this.getSortedKeyValues()" :class="$style['table-property']">
                     <span :title="value" :class="$style['table-property-key']">
                         {{key}}
                     </span>
@@ -18,12 +18,22 @@
 
 <script lang="ts">
     import Vue from 'vue';
-    import {mapGetters} from 'vuex'
+    import {mapGetters} from 'vuex';
+    import * as R from 'ramda';
 
     export default Vue.extend({
         computed: mapGetters({
             additionalTypeInformation: 'getAdditionalTypeInformation'
-        })
+        }),
+        methods: {
+            getSortedKeyValues: function (this: any) {
+                return R.pipe(
+                    R.keys,
+                    R.sort((v1: string, v2: string) => v1.localeCompare(v2)),
+                    R.map((key: string) => ({key, value: this.additionalTypeInformation[key]}))
+                )(this.additionalTypeInformation);
+            }
+        }
     });
 </script>
 
