@@ -4,7 +4,7 @@
         <div :class="$style['search']">
             <i i class="fa fa-search" :class="$style['search-icon']" aria-hidden="true"></i>
             <input type="text" placeholder="Search" @input="searchByToken">
-            <i class="fa fa-filter" :class="$style['filter-icon']" aria-hidden="true"></i>
+            <advanced-search-modal></advanced-search-modal>
         </div>
         <div :class="$style['type-result-column']">
             <div
@@ -22,9 +22,11 @@
 
 <script lang="ts">
     import Vue from 'vue';
+    import AdvancedSearchModal from './AdvancedSearchModal.vue';
     import {mapActions, mapState} from 'vuex';
 
     export default Vue.extend({
+        components: {AdvancedSearchModal},
         computed: mapState({
             allTypes: (state: any) => state.types.displayedTypes,
             selectedTypeName: (state: any) => state.types.selectedType.type
@@ -45,15 +47,6 @@
         color: grey;
         font-size: 24px;
         left: 10px;
-        position: absolute;
-        top: 8px;
-    }
-
-    .filter-icon {
-        color: #337ab7;
-        cursor: pointer;
-        font-size: 24px;
-        left: 185px;
         position: absolute;
         top: 8px;
     }
