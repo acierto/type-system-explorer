@@ -22,7 +22,7 @@
 
 <script lang="ts">
     import Vue from 'vue';
-    import AdvancedSearchModal from './AdvancedSearchModal.vue';
+    import AdvancedSearchModal from './advanced-search/AdvancedSearchModal.vue';
     import {mapActions, mapState} from 'vuex';
 
     export default Vue.extend({
