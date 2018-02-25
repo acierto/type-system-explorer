@@ -1,6 +1,6 @@
 <template>
     <div :class="$style['type-column']">
-        <div :class="$style['type-column-title']">Superclasses</div>
+        <div :class="$style['type-column-title']">SuperTypes</div>
         <div :class="[$style['type-result-column']]">
             <div :class="$style['type-row']" v-for="s in supertypes">
             <span :title="s">

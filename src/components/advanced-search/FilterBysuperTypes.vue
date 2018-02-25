@@ -3,8 +3,8 @@
         <multi-select
                 :multiple="true"
                 :options="superTypes"
-                @input="updateAdvancedSearchPropertyNames"
-                placeholder="Select property names">
+                @input="updateAdvancedSearchSuperTypes"
+                placeholder="Select superTypes">
         </multi-select>
     </div>
 </template>
@@ -16,10 +16,10 @@
     export default {
         components: {MultiSelect},
         computed: mapGetters({
-            superTypes: 'getAllPropertyNames'
+            superTypes: 'getAllSuperTypes'
         }),
         methods: mapActions([
-            'updateAdvancedSearchPropertyNames'
+            'updateAdvancedSearchSuperTypes'
         ])
     }
 </script>

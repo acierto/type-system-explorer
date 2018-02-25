@@ -2,9 +2,9 @@
     <div>
         <multi-select
                 :multiple="true"
-                :options="superTypes"
-                @input="updateAdvancedSearchPropertyNames"
-                placeholder="Select property names">
+                :options="interfaces"
+                @input="updateAdvancedSearchInterfaces"
+                placeholder="Select interfaces">
         </multi-select>
     </div>
 </template>
@@ -16,10 +16,10 @@
     export default {
         components: {MultiSelect},
         computed: mapGetters({
-            superTypes: 'getAllPropertyNames'
+            interfaces: 'getAllInterfaces'
         }),
         methods: mapActions([
-            'updateAdvancedSearchPropertyNames'
+            'updateAdvancedSearchInterfaces'
         ])
     }
 </script>

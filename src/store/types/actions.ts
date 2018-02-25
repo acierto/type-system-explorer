@@ -15,6 +15,26 @@ export const getTypes: Action<State, any> = (context: { commit: Commit }) => {
     })
 };
 
+export const applyAdvancedFilter: Action<State, any> = (context: { commit: Commit }, event: any) => {
+    context.commit('APPLY_ADVANCED_FILTER', event);
+};
+
+export const resetStagedAdvancedFilter: Action<State, any> = (context: { commit: Commit }, event: any) => {
+    context.commit('RESET_STAGED_ADVANCED_FILTER', event);
+};
+
+export const updateAdvancedSearchPropertyNames: Action<State, any> = (context: { commit: Commit }, event: any) => {
+    context.commit('UPDATE_ADVANCED_SEARCH_PROPERTY_NAMES', event);
+};
+
+export const updateAdvancedSearchInterfaces: Action<State, any> = (context: { commit: Commit }, event: any) => {
+    context.commit('UPDATE_ADVANCED_SEARCH_INTERFACES', event);
+};
+
+export const updateAdvancedSearchSuperTypes: Action<State, any> = (context: { commit: Commit }, event: any) => {
+    context.commit('UPDATE_ADVANCED_SEARCH_SUPERTYPES', event);
+};
+
 export const searchByToken: Action<State, any> = (context: { commit: Commit }, event: any) => {
     if (debounceSearch) {
         debounceSearch.clear();
