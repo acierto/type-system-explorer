@@ -5,7 +5,8 @@ import {filterByAdvancedFilter} from '../../../utils/filter-types';
 export interface AdvancedSearch {
     interfaces: string[],
     superTypes: string[],
-    propertyNames: string[]
+    propertyNames: string[],
+    [key: string]: string[]
 }
 
 export interface State {

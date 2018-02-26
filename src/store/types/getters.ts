@@ -41,3 +41,11 @@ export const getSelectedPropertyName = (state: any) => R.pathOr([], ['types', 's
 export const getSelectedTypeInterfaces = (state: any) => R.pathOr([], ['types', 'selectedType', 'interfaces'], state);
 export const getSelectedTypeProperties = (state: any) => R.pathOr([], ['types', 'selectedType', 'properties'], state);
 export const getSelectedTypeSuperTypes = (state: any) => R.pathOr([], ['types', 'selectedType', 'superTypes'], state);
+
+export const isAdvancedFilterOn = (state: any) => R.pipe(
+    R.keys,
+    R.reduce(
+        (acc: boolean, key: string) =>
+            R.or(acc, !R.isEmpty(state.types.advancedSearch.applied[key]))
+        , false)
+)(state.types.advancedSearch.applied);

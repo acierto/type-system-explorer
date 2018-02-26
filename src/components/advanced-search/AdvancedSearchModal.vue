@@ -1,6 +1,11 @@
 <template>
     <div>
-        <i class="fa fa-filter" :class="$style['filter-icon']" @click="showModal" aria-hidden="true"></i>
+        <i class="fa fa-filter"
+           :class="{
+            [$style['filter-icon']]: !this.filterOn,
+            [$style['applied-advanced-filter-icon']]: this.filterOn}"
+           @click="showModal"
+           aria-hidden="true"></i>
         <b-modal ref="myModalRef" hide-footer title="Advanced Search Modal">
             <filter-by-interfaces/>
             <filter-by-property-names/>
@@ -11,12 +16,16 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     import FilterByPropertyNames from './FilterByPropertyNames.vue';
     import FilterByInterfaces from './FilterByInterfaces.vue';
     import FilterBySuperTypes from './FilterBysuperTypes.vue';
 
     export default {
         components: {FilterByInterfaces, FilterByPropertyNames, FilterBySuperTypes},
+        computed: mapGetters({
+            filterOn: 'isAdvancedFilterOn'
+        }),
         methods: {
             showModal() {
                 this.$refs.myModalRef.show();
@@ -35,12 +44,20 @@
 </script>
 
 <style module>
-    .filter-icon {
-        color: #337ab7;
+    .filter-image {
         cursor: pointer;
         font-size: 24px;
         left: 185px;
         position: absolute;
         top: 8px;
+    }
+
+    .filter-icon {
+        color: #337ab7;
+        composes: filter-image;
+    }
+    .applied-advanced-filter-icon {
+        color: orange;
+        composes: filter-image;
     }
 </style>
