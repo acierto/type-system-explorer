@@ -1,10 +1,10 @@
 import * as R from 'ramda';
 
-export const hasSelectedType = (state: any) => !R.isEmpty(R.path(['types', 'selectedType'], state));
-export const hasSelectedProperty = (state: any) => !R.isEmpty(R.path(['types', 'selectedProperty'], state));
+export const hasSelectedType = (state: any) => !R.isEmpty(R.path(['selections', 'selectedType'], state));
+export const hasSelectedProperty = (state: any) => !R.isEmpty(R.path(['selections', 'selectedProperty'], state));
 
 export const getAdditionalTypeInformation = (state: any) => {
-    const selectedType = R.path(['types', 'selectedType'], state);
+    const selectedType = R.path(['selections', 'selectedType'], state);
     return selectedType && R.omit(['interfaces', 'properties', 'superTypes'], selectedType);
 };
 
@@ -35,12 +35,12 @@ export const getAllInterfaces = (state: any) => R.pipe(
     R.sort((n1: string, n2: string) => n1.toLowerCase().localeCompare(n2.toLowerCase()))
 )(state.types.all);
 
-export const getSelectedProperty = (state: any) => R.pathOr([], ['types', 'selectedProperty'], state);
-export const getSelectedPropertyName = (state: any) => R.pathOr([], ['types', 'selectedProperty', 'name'], state);
+export const getSelectedProperty = (state: any) => R.pathOr([], ['selections', 'selectedProperty'], state);
+export const getSelectedPropertyName = (state: any) => R.pathOr([], ['selections', 'selectedProperty', 'name'], state);
 
-export const getSelectedTypeInterfaces = (state: any) => R.pathOr([], ['types', 'selectedType', 'interfaces'], state);
-export const getSelectedTypeProperties = (state: any) => R.pathOr([], ['types', 'selectedType', 'properties'], state);
-export const getSelectedTypeSuperTypes = (state: any) => R.pathOr([], ['types', 'selectedType', 'superTypes'], state);
+export const getSelectedTypeInterfaces = (state: any) => R.pathOr([], ['selections', 'selectedType', 'interfaces'], state);
+export const getSelectedTypeProperties = (state: any) => R.pathOr([], ['selections', 'selectedType', 'properties'], state);
+export const getSelectedTypeSuperTypes = (state: any) => R.pathOr([], ['selections', 'selectedType', 'superTypes'], state);
 
 export const isAdvancedFilterOn = (state: any) => R.pipe(
     R.keys,

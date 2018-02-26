@@ -1,6 +1,7 @@
 import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';
 import Vuex from 'vuex';
+import selections from './types/modules/selections';
 import types from './types/modules/types';
 import * as actions from './types/actions';
 import * as getters from './types/getters'
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     actions,
     getters,
     modules: {
+        selections,
         types
     },
     strict: true

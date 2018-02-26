@@ -44,7 +44,6 @@ const mutations = {
             staged: initialSearch
         };
         state.displayedTypes = filterByAdvancedFilter(state.all, state.advancedSearch.applied);
-        mutations.CLEAR_SELECTIONS(state);
     },
     CHANGE_SEARCH_TOKEN(state: State, token: string) {
         state.token = token;
@@ -55,13 +54,6 @@ const mutations = {
             state.displayedTypes = R.filter(matched, state.all);
         } else {
             state.displayedTypes = state.all;
-        }
-        mutations.CLEAR_SELECTIONS(state);
-    },
-    CLEAR_SELECTIONS(state: State) {
-        if (R.isEmpty(state.displayedTypes)) {
-            state.selectedProperty = '';
-            state.selectedType = '';
         }
     },
     RECEIVE_TYPES(state: State, types: any) {
@@ -74,13 +66,6 @@ const mutations = {
             applied: staged,
             staged
         }
-    },
-    SELECT_PROPERTY(state: State, propertyName: string) {
-        state.selectedProperty = R.find(R.propEq('name', propertyName), state.selectedType.properties);
-    },
-    SELECT_TYPE(state: State, type: string) {
-        state.selectedProperty = '';
-        state.selectedType = R.find(R.propEq('type', type), state.all);
     },
     UPDATE_ADVANCED_SEARCH_INTERFACES(state: State, interfaces: string[]) {
         state.advancedSearch = R.assocPath(['staged', 'interfaces'], interfaces, state.advancedSearch);

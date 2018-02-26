@@ -15,8 +15,11 @@ export const getTypes: Action<State, any> = (context: { commit: Commit }) => {
     })
 };
 
-export const applyAdvancedFilter: Action<State, any> = (context: { commit: Commit }, event: any) => {
+export const applyAdvancedFilter: Action<State, any> = (context: { commit: Commit, rootState: any }, event: any) => {
     context.commit('APPLY_ADVANCED_FILTER', event);
+    if (R.isEmpty(context.rootState.types.displayedTypes)) {
+        context.commit('CLEAR_SELECTIONS', event);
+    }
 };
 
 export const resetStagedAdvancedFilter: Action<State, any> = (context: { commit: Commit }, event: any) => {
@@ -35,21 +38,25 @@ export const updateAdvancedSearchSuperTypes: Action<State, any> = (context: { co
     context.commit('UPDATE_ADVANCED_SEARCH_SUPERTYPES', event);
 };
 
-export const searchByToken: Action<State, any> = (context: { commit: Commit }, event: any) => {
+export const searchByToken: Action<State, any> = (context: { commit: Commit, rootState: any }, event: any) => {
     if (debounceSearch) {
         debounceSearch.clear();
     }
 
     function action() {
         context.commit('CHANGE_SEARCH_TOKEN', event.target.value);
+        if (R.isEmpty(context.rootState.types.displayedTypes)) {
+            context.commit('CLEAR_SELECTIONS', event);
+        }
     }
 
     debounceSearch = debounce(action, DEBOUNCE_WAIT_TIME);
     debounceSearch();
 };
 
-export const selectType: Action<State, any> = (context: { commit: Commit }, event: any) => {
-    context.commit('SELECT_TYPE', event.target.attributes['data-value'].value);
+export const selectType: Action<State, any> = (context: { commit: Commit, rootState: any }, event: any) => {
+    const type = event.target.attributes['data-value'].value;
+    context.commit('SELECT_TYPE', R.find(R.propEq('type', type), context.rootState.types.all));
 };
 
 export const selectProperty: Action<State, any> = (context: { commit: Commit }, event: any) => {
