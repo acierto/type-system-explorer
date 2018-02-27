@@ -3,7 +3,7 @@ import {Selector} from 'testcafe';
 fixture `Types Column`
     .page `http://localhost:2222/`;
 
-const findItems = Selector(() => document.querySelectorAll('.TypeList---type-row_1 span'));
+const findItems = Selector(() => document.querySelectorAll('.TypeList---type-row_0 span'));
 
 test('Options have to be sorted', async t => {
 
