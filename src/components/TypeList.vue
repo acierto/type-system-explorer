@@ -23,13 +23,13 @@
 <script lang="ts">
     import Vue from 'vue';
     import AdvancedSearchModal from './advanced-search/AdvancedSearchModal.vue';
-    import {mapActions, mapState} from 'vuex';
+    import {mapActions, mapGetters} from 'vuex';
 
     export default Vue.extend({
         components: {AdvancedSearchModal},
-        computed: mapState({
-            allTypes: (state: any) => state.types.displayedTypes,
-            selectedTypeName: (state: any) => state.types.selectedType.type
+        computed: mapGetters({
+            allTypes: 'getDisplayedTypes',
+            selectedTypeName: 'getSelectedTypeName'
         }),
         methods: mapActions([
             'getTypes',

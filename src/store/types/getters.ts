@@ -1,5 +1,9 @@
 import * as R from 'ramda';
 
+export const getDisplayedTypes = (state: any) => state.types.displayedTypes;
+
+export const getSelectedTypeName = (state: any) => state.selections.selectedType.type;
+
 export const hasSelectedType = (state: any) => !R.isEmpty(R.path(['selections', 'selectedType'], state));
 export const hasSelectedProperty = (state: any) => !R.isEmpty(R.path(['selections', 'selectedProperty'], state));
 
@@ -46,6 +50,6 @@ export const isAdvancedFilterOn = (state: any) => R.pipe(
     R.keys,
     R.reduce(
         (acc: boolean, key: string) =>
-            R.or(acc, !R.isEmpty(state.types.advancedSearch.applied[key]))
+            R.or(acc, !R.isEmpty(state.search.advancedSearch.applied[key]))
         , false)
-)(state.types.advancedSearch.applied);
+)(state.search.advancedSearch.applied);

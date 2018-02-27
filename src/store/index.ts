@@ -1,6 +1,7 @@
 import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';
 import Vuex from 'vuex';
+import search from './types/modules/search';
 import selections from './types/modules/selections';
 import types from './types/modules/types';
 import * as actions from './types/actions';
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     actions,
     getters,
     modules: {
+        search,
         selections,
         types
     },
