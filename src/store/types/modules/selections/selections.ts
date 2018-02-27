@@ -1,8 +1,8 @@
 import * as R from 'ramda';
 
 export interface State {
-    selectedProperty: any,
-    selectedType: any
+    selectedProperty: any;
+    selectedType: any;
 }
 
 const state: State = {
@@ -27,4 +27,4 @@ const mutations = {
 export default {
     state,
     mutations
-}
+};

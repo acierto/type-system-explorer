@@ -4,8 +4,8 @@ import {filterByAdvancedFilter} from '../../../../utils/filter-types';
 import {AdvancedSearch} from "../search/search";
 
 export interface State {
-    all: any[],
-    displayedTypes: any[]
+    all: any[];
+    displayedTypes: any[];
 }
 
 const state: State = {
@@ -35,4 +35,4 @@ const mutations = {
 export default {
     state,
     mutations
-}
+};

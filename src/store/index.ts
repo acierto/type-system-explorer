@@ -5,7 +5,7 @@ import search from './types/modules/search/search';
 import selections from './types/modules/selections/selections';
 import types from './types/modules/types/types';
 import * as actions from './types/actions';
-import * as getters from './types/getters'
+import * as getters from './types/getters';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -22,4 +22,4 @@ export default new Vuex.Store({
         types
     },
     strict: true
-})
+});

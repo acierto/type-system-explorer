@@ -7,4 +7,4 @@ export default {
                 cb(response.data);
             });
     }
-}
+};

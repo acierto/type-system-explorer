@@ -1,15 +1,16 @@
 import * as R from 'ramda';
 
 export interface AdvancedSearch {
-    interfaces: string[],
-    superTypes: string[],
-    propertyNames: string[],
-    [key: string]: string[]
+    interfaces: string[];
+    superTypes: string[];
+    propertyNames: string[];
+
+    [key: string]: string[];
 }
 
 export interface Search {
-    advancedSearch: { applied: AdvancedSearch, staged: AdvancedSearch },
-    token: string
+    advancedSearch: { applied: AdvancedSearch, staged: AdvancedSearch };
+    token: string;
 }
 
 const initialSearch = {
@@ -42,7 +43,7 @@ const mutations = {
         state.advancedSearch = {
             applied: staged,
             staged
-        }
+        };
     },
     UPDATE_ADVANCED_SEARCH_INTERFACES(state: Search, interfaces: string[]) {
         state.advancedSearch = R.assocPath(['staged', 'interfaces'], interfaces, state.advancedSearch);
@@ -58,4 +59,4 @@ const mutations = {
 export default {
     state,
     mutations
-}
+};
