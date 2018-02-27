@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import {Commit, Action} from 'vuex'
 import api from '../../api/fixtures'
 import debounce from 'debounce';
-import {State} from "./modules/types";
+import {State} from "./modules/types/types";
 
 let debounceSearch: any;
 

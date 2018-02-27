@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 
-import {filterByAdvancedFilter} from '../../../utils/filter-types';
-import {AdvancedSearch} from "./search";
+import {filterByAdvancedFilter} from '../../../../utils/filter-types';
+import {AdvancedSearch} from "../search/search";
 
 export interface State {
     all: any[],

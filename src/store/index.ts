@@ -1,9 +1,9 @@
 import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import search from './types/modules/search';
-import selections from './types/modules/selections';
-import types from './types/modules/types';
+import search from './types/modules/search/search';
+import selections from './types/modules/selections/selections';
+import types from './types/modules/types/types';
 import * as actions from './types/actions';
 import * as getters from './types/getters'
 

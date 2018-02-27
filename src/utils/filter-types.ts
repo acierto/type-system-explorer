@@ -1,4 +1,4 @@
-import {AdvancedSearch} from "../store/types/modules/search";
+import {AdvancedSearch} from "../store/types/modules/search/search";
 import * as R from "ramda";
 
 const filterByCriteria = R.curry((criteria: string[], values: string[]) =>
