@@ -44,20 +44,13 @@
 </script>
 
 <style module>
-    .filter-image {
-        cursor: pointer;
-        font-size: 24px;
-        left: 185px;
-        position: absolute;
-        top: 8px;
-    }
-
     .filter-icon {
         color: #337ab7;
-        composes: filter-image;
+        composes: filter-image from '../../styles/filter-image.css';
     }
+
     .applied-advanced-filter-icon {
         color: orange;
-        composes: filter-image;
+        composes: filter-image from '../../styles/filter-image.css';
     }
 </style>

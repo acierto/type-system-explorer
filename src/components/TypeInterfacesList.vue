@@ -24,18 +24,11 @@
 
 <style module>
     .type-column {
-        display: flex;
-        flex-flow: column;
-        height: inherit;
-        width: 220px;
+        composes: ts-column from '../styles/column.css';
     }
 
     .type-column-title {
-        display: inline-block;
-        font-weight: bold;
-        line-height: 30px;
-        text-align: center;
-        width: auto;
+        composes: ts-column-title from '../styles/column.css';
     }
 
     .type-result-column {
@@ -46,16 +39,7 @@
     .type-row {
         border: 1px solid #d9534f;
         color: #d9534f;
-        font-weight: bold;
-        font-size: 12px;
-        margin: 5px;
-        min-height: 40px;
-        overflow: hidden;
-        padding: 10px;
-        text-decoration: none;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        background-color: #fff;
+        composes: ts-row from '../styles/column.css';
     }
 
     .type-row span {

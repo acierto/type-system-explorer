@@ -31,40 +31,20 @@
 
 <style module>
     .property-details {
-        display: flex;
-        flex-basis: auto;
-        flex-flow: column nowrap;
-        flex-grow: 1;
-        width: auto;
+        composes: ts-flex-column from '../styles/flex.css';
     }
 
     .section-title {
-        display: inline-block;
-        font-weight: bold;
-        line-height: 30px;
-        text-align: center;
-        width: auto;
+        composes: ts-column-title from '../styles/column.css';
     }
 
     .property-details-map {
-        display: flex;
-        max-height: 100%;
-        min-height: 0;
-        overflow: auto;
-        width: auto;
+        composes: ts-table from '../styles/table.css';
         height: 100%;
-        flex-basis: auto;
-        flex-flow: column nowrap;
-        flex-grow: 1;
-        flex-shrink: 1;
-        font-size: 12px;
     }
 
     .property-details-content {
-        border-spacing: 0 5px;
-        display: table;
-        margin: 0 auto;
-        width: 95%;
+        composes: ts-table-content from '../styles/table.css';
     }
 
     .property-details-row {
@@ -72,29 +52,11 @@
     }
 
     .property-key {
-        display: table-cell;
-        padding: 10px;
-        width: 200px;
-        background-color: #337ab7;
-        border: solid 1px black;
-        border-radius: 30px 0 0 30px;
-        border-right: none;
-        color: #fff;
-        font-weight: bold;
-        min-width: 150px;
-        text-align: center;
-        vertical-align: middle;
+        composes: ts-table-key from '../styles/table.css';
     }
 
     .property-value {
-        display: table-cell;
-        padding: 10px;
-        width: auto;
-        border: solid 1px black;
-        border-radius: 0 30px 30px 0;
-        border-left: none;
-        font-weight: bold;
-        word-break: break-word;
+        composes: ts-table-value from '../styles/table.css';
         max-width: none;
     }
 </style>

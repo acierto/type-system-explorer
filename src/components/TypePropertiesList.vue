@@ -33,18 +33,11 @@
 
 <style module>
     .type-column {
-        display: flex;
-        flex-flow: column;
-        height: inherit;
-        width: 220px;
+        composes: ts-column from '../styles/column.css';
     }
 
     .type-column-title {
-        display: inline-block;
-        font-weight: bold;
-        line-height: 30px;
-        text-align: center;
-        width: auto;
+        composes: ts-column-title from '../styles/column.css';
     }
 
     .type-result-column {
@@ -53,6 +46,7 @@
     }
 
     .property-row {
+        background-color: #fff;
         border: 1px solid #398439;
         color: #398439;
         font-weight: bold;
@@ -64,7 +58,6 @@
         text-decoration: none;
         text-overflow: ellipsis;
         white-space: nowrap;
-        background-color: #fff;
     }
 
     .property-row:hover {

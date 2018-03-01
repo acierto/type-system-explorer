@@ -67,38 +67,21 @@
     }
 
     .type-column {
-        display: flex;
-        flex-flow: column;
-        height: inherit;
-        width: 220px;
+        composes: ts-column from '../styles/column.css';
     }
 
     .type-column-title {
-        display: inline-block;
-        font-weight: bold;
-        line-height: 30px;
-        text-align: center;
-        width: auto;
+        composes: ts-column-title from '../styles/column.css';
     }
 
     .type-result-column {
-        flex: 1 100%;
-        overflow: auto;
+        composes: ts-result-column from '../styles/column.css';
     }
 
     .type-row {
         border: 1px solid #337ab7;
         color: #337ab7;
-        font-weight: bold;
-        font-size: 12px;
-        margin: 5px;
-        min-height: 40px;
-        overflow: hidden;
-        padding: 10px;
-        text-decoration: none;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        background-color: #fff;
+        composes: ts-row from '../styles/column.css';
     }
 
     .type-row:hover {

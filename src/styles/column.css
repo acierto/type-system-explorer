@@ -1,0 +1,32 @@
+.ts-column {
+    display: flex;
+    flex-flow: column;
+    height: inherit;
+    width: 220px;
+}
+
+.ts-column-title {
+    display: inline-block;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    width: auto;
+}
+
+.ts-result-column {
+    flex: 1 100%;
+    overflow: auto;
+}
+
+.ts-row {
+    font-weight: bold;
+    font-size: 12px;
+    margin: 5px;
+    min-height: 40px;
+    overflow: hidden;
+    padding: 10px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #fff;
+}
