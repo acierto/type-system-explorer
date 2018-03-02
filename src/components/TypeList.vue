@@ -1,6 +1,6 @@
 <template>
     <div :class="$style['type-column']">
-        <div :class="$style['type-column-title']">Types</div>
+        <div :class="$style['type-column-title']">{{'typeColumnTitle' | format-message}}</div>
         <div :class="$style['search']">
             <i i class="fa fa-search" :class="$style['search-icon']" aria-hidden="true"></i>
             <input type="text" placeholder="Search" @input="searchByToken">
