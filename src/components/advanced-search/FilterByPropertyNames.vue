@@ -4,7 +4,7 @@
                 :multiple="true"
                 :options="superTypes"
                 @input="updateAdvancedSearchPropertyNames"
-                placeholder="Select property names">
+                :placeholder="'selectPropertyNamesPlaceholder' | format-message">
         </multi-select>
     </div>
 </template>

@@ -1,6 +1,7 @@
 <template>
     <div :class="$style['type-column']">
         <div :class="$style['type-column-title']">{{'typeColumnTitle' | format-message}}</div>
+        <items-count :count="countTypes" messageKey="foundCountTypesMessage" />
         <div :class="$style['search']">
             <i i class="fa fa-search" :class="$style['search-icon']" aria-hidden="true"></i>
             <input type="text" placeholder="Search" @input="searchByToken">
@@ -21,16 +22,23 @@
 </template>
 
 <script lang="ts">
+    import * as R from 'ramda';
     import Vue from 'vue';
     import AdvancedSearchModal from './advanced-search/AdvancedSearchModal.vue';
+    import ItemsCount from './ItemsCount.vue';
     import {mapActions, mapGetters} from 'vuex';
 
     export default Vue.extend({
-        components: {AdvancedSearchModal},
-        computed: mapGetters({
-            allTypes: 'getDisplayedTypes',
-            selectedTypeName: 'getSelectedTypeName'
-        }),
+        components: {AdvancedSearchModal, ItemsCount},
+        computed: {
+            ...mapGetters({
+                allTypes: 'getDisplayedTypes',
+                selectedTypeName: 'getSelectedTypeName'
+            }),
+            countTypes: function () {
+                return R.length(this.allTypes);
+            }
+        },
         methods: mapActions([
             'getTypes',
             'searchByToken',

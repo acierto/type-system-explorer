@@ -4,7 +4,7 @@
                 :multiple="true"
                 :options="superTypes"
                 @input="updateAdvancedSearchSuperTypes"
-                placeholder="Select superTypes">
+                :placeholder="'selectSuperTypesPlaceholder' | format-message">
         </multi-select>
     </div>
 </template>

@@ -4,7 +4,7 @@
                 :multiple="true"
                 :options="interfaces"
                 @input="updateAdvancedSearchInterfaces"
-                placeholder="Select interfaces">
+                :placeholder="'selectInterfacesPlaceholder' | format-message">
         </multi-select>
     </div>
 </template>

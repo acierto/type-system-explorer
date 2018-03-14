@@ -1,6 +1,6 @@
 <template>
     <div :class="$style['additional-type-information']">
-        <div :class="$style['title']">Additional type information</div>
+        <div :class="$style['title']">{{'additionalTypeInformationTitle' | format-message}}</div>
         <div :class="$style['properties-table']">
             <div :class="$style['properties-table-content']">
                 <div v-for="{key, value} in this.getSortedKeyValues()" :class="$style['table-property']">

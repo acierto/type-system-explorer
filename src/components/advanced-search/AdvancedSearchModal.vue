@@ -6,11 +6,13 @@
             [$style['applied-advanced-filter-icon']]: this.filterOn}"
            @click="showModal"
            aria-hidden="true"></i>
-        <b-modal ref="myModalRef" hide-footer title="Advanced Search Modal">
+        <b-modal ref="myModalRef" hide-footer :title="'advancedSearchModalTitle' | format-message">
             <filter-by-interfaces/>
             <filter-by-property-names/>
             <filter-by-super-types/>
-            <b-btn class="mt-3" variant="outline-danger" block @click="applyFilter">Apply</b-btn>
+            <b-btn class="mt-3" variant="outline-danger" block @click="applyFilter">
+                {{'applyButton' | format-message}}
+            </b-btn>
         </b-modal>
     </div>
 </template>

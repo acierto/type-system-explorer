@@ -1,6 +1,6 @@
 <template>
     <div :class="$style['type-column']">
-        <div :class="$style['type-column-title']">Interfaces</div>
+        <div :class="$style['type-column-title']">{{'interfacesTitle' | format-message}}</div>
         <div :class="[$style['type-result-column']]">
             <div :class="$style['type-row']" v-for="i in interfaces">
             <span :title="i">

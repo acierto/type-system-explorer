@@ -1,6 +1,6 @@
 <template>
     <div :class="$style['property-details']">
-        <div :class="$style['section-title']">Property Details</div>
+        <div :class="$style['section-title']">{{'propertyDetailsTitle' | format-message}}</div>
         <div :class="$style['property-details-map']">
             <div :class="$style['property-details-content']">
                 <div

@@ -1,12 +1,14 @@
 <template>
     <div :class="$style['type-column']" v-if="isTemplateDisplayed">
-        <div :class="$style['type-column-title']">Properties</div>
+        <div :class="$style['type-column-title']">{{'propertiesTitle' | format-message}}</div>
+        <items-count :count="countProperties" messageKey="foundCountPropertiesMessage" />
+        <div :class="$style['count-types-message']" v-if="countProperties > 0">{{this.foundNumberOfTypesMessage}}</div>
         <div :class="[$style['type-result-column']]">
             <div
-                :class="[$style['property-row'], {[$style['property-row-selected']]: selectedPropertyName === p.name}]"
-                :data-value="p.name"
-                v-for="p in properties"
-                @click="selectProperty">
+                    :class="[$style['property-row'], {[$style['property-row-selected']]: selectedPropertyName === p.name}]"
+                    :data-value="p.name"
+                    v-for="p in properties"
+                    @click="selectProperty">
                 <span :data-value="p.name" :title="p.name">
                     {{p.name}}
                 </span>
@@ -16,15 +18,23 @@
 </template>
 
 <script lang="ts">
+    import * as R from 'ramda';
+    import ItemsCount from './ItemsCount.vue';
     import Vue from 'vue';
-    import {mapActions, mapGetters} from 'vuex'
+    import {mapActions, mapGetters} from 'vuex';
 
     export default Vue.extend({
-        computed: mapGetters({
-            isTemplateDisplayed: 'hasSelectedType',
-            properties: 'getSelectedTypeProperties',
-            selectedPropertyName: 'getSelectedPropertyName'
-        }),
+        components: {ItemsCount},
+        computed: {
+            ...mapGetters({
+                isTemplateDisplayed: 'hasSelectedType',
+                properties: 'getSelectedTypeProperties',
+                selectedPropertyName: 'getSelectedPropertyName'
+            }),
+            countProperties: function () {
+                return R.length(this.properties);
+            }
+        },
         methods: mapActions([
             'selectProperty'
         ])
