@@ -12,3 +12,11 @@ yarn
 gulp
 
 ```
+
+## Release new version
+
+To release new version, run next command: 
+
+```bash
+gulp complete-release
+```
