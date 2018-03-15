@@ -1,6 +1,7 @@
 <template>
     <div :class="$style['type-column']">
         <div :class="$style['type-column-title']">{{'superTypesTitle' | format-message}}</div>
+        <items-count :count="countSuperTypes" messageKey="foundCountSuperTypesMessage"/>
         <div :class="[$style['type-result-column']]">
             <div :class="$style['type-row']" v-for="s in supertypes">
             <span :title="s">
@@ -12,13 +13,21 @@
 </template>
 
 <script lang="ts">
+    import * as R from 'ramda';
+    import ItemsCount from './ItemsCount.vue';
     import Vue from 'vue';
-    import {mapActions, mapGetters} from 'vuex'
+    import {mapGetters} from 'vuex'
 
     export default Vue.extend({
-        computed: mapGetters({
-            supertypes: 'getSelectedTypeSuperTypes'
-        })
+        components: {ItemsCount},
+        computed: {
+            ...mapGetters({
+                supertypes: 'getSelectedTypeSuperTypes'
+            }),
+            countSuperTypes: function (this: any) {
+                return R.length(this.supertypes);
+            }
+        }
     });
 </script>
 

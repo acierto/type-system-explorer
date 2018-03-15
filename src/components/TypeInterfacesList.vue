@@ -1,8 +1,9 @@
 <template>
     <div :class="$style['type-column']">
         <div :class="$style['type-column-title']">{{'interfacesTitle' | format-message}}</div>
+        <items-count :count="countInterfaces" messageKey="foundCountInterfacesMessage"/>
         <div :class="[$style['type-result-column']]">
-            <div :class="$style['type-row']" v-for="i in interfaces">
+            <div :class="$style['type-row']" v-for="i in typeInterfaces">
             <span :title="i">
                 {{i}}
             </span>
@@ -12,13 +13,21 @@
 </template>
 
 <script lang="ts">
+    import * as R from 'ramda';
+    import ItemsCount from './ItemsCount.vue';
     import Vue from 'vue';
     import {mapGetters} from 'vuex';
 
     export default Vue.extend({
-        computed: mapGetters({
-            interfaces: 'getSelectedTypeInterfaces'
-        })
+        components: {ItemsCount},
+        computed: {
+            ...mapGetters({
+                typeInterfaces: 'getSelectedTypeInterfaces'
+            }),
+            countInterfaces: function (this: any) {
+                return R.length(this.typeInterfaces);
+            }
+        }
     });
 </script>
 

@@ -18,7 +18,7 @@ export const getTypes: Action<State, any> = (context: { commit: Commit }) => {
 export const applyAdvancedFilter: Action<State, any> = (context: { commit: Commit, rootState: any }, event: any) => {
     context.commit('APPLY_ADVANCED_FILTER', event);
     context.commit('UPDATE_DISPLAYED_TYPES_BY_ADVANCED_SEARCH', context.rootState.search.advancedSearch.applied);
-    if (R.isEmpty(context.rootState.types.displayedTypes)) {
+    if (!R.isEmpty(context.rootState.types.displayedTypes)) {
         context.commit('CLEAR_SELECTIONS', event);
     }
 };

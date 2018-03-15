@@ -2,7 +2,6 @@
     <div :class="$style['type-column']" v-if="isTemplateDisplayed">
         <div :class="$style['type-column-title']">{{'propertiesTitle' | format-message}}</div>
         <items-count :count="countProperties" messageKey="foundCountPropertiesMessage" />
-        <div :class="$style['count-types-message']" v-if="countProperties > 0">{{this.foundNumberOfTypesMessage}}</div>
         <div :class="[$style['type-result-column']]">
             <div
                     :class="[$style['property-row'], {[$style['property-row-selected']]: selectedPropertyName === p.name}]"
