@@ -1,10 +1,11 @@
 import gulp from 'gulp';
+import {pluginPort, serverPort} from '../utils/config';
 import WebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';
 import Q from 'q';
 import webpackDevConfig from '../../build/webpack.dev.conf';
 
-const target = 'http://localhost:4519';
+const target = `http://localhost:${serverPort}`;
 
 const proxy = [{
     auth: 'admin:admin',
@@ -31,8 +32,8 @@ const startServer = (config) => {
         quiet: false,
         stats: {colors: true}
     });
-    server.listen(2222);
+    server.listen(pluginPort);
     return serverStarted.promise;
 };
 
-gulp.task('dev-server', () => startServer(webpackDevConfig));
+gulp.task('dev-server', gulp.parallel('start-xld-mock-server', () => startServer(webpackDevConfig)));
