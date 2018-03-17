@@ -1,10 +1,11 @@
+import {Promise} from 'bluebird';
 import gulp from 'gulp';
 import {pluginPort, serverPort} from '../utils/config';
 import WebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';
-import Q from 'q';
 import webpackDevConfig from '../../build/webpack.dev.conf';
 
+export let devServer;
 const target = `http://localhost:${serverPort}`;
 
 const proxy = [{
@@ -16,13 +17,11 @@ const proxy = [{
     target
 }];
 
-const startServer = (config) => {
-    const serverStarted = Q.defer();
-
+const startServer = (config) => new Promise((resolve) => {
     const webpackInstance = webpack(config);
-    webpackInstance.plugin('done', () => serverStarted.resolve());
+    webpackInstance.plugin('done', () => resolve());
 
-    const server = new WebpackDevServer(webpackInstance, {
+    devServer = new WebpackDevServer(webpackInstance, {
         disableHostCheck: true,
         hot: true,
         lazy: false,
@@ -32,8 +31,7 @@ const startServer = (config) => {
         quiet: false,
         stats: {colors: true}
     });
-    server.listen(pluginPort);
-    return serverStarted.promise;
-};
+    devServer.listen(pluginPort);
+});
 
-gulp.task('dev-server', gulp.parallel('start-xld-mock-server', () => startServer(webpackDevConfig)));
+gulp.task('dev-server', () => startServer(webpackDevConfig));
