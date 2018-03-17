@@ -42,7 +42,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: node_modules/gulp/bin/gulp.js e2e
+      - run: node_modules/gulp/bin/gulp.js circle-e2e
 
       - store_test_results:
           path: /tmp/test-results

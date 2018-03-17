@@ -15,7 +15,3 @@ gulp.task('start-xld-mock-server', () => new Promise((resolve) => {
     xldMockServer = app.listen(serverPort);
     resolve();
 }));
-
-gulp.task('stop-xld-mock-server', () => {
-    xldMockServer.close();
-});

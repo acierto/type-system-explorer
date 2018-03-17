@@ -34,4 +34,4 @@ const startServer = (config) => new Promise((resolve) => {
     devServer.listen(pluginPort);
 });
 
-gulp.task('dev-server', () => startServer(webpackDevConfig));
+gulp.task('dev-server', gulp.series('start-xld-mock-server', () => startServer(webpackDevConfig)));
