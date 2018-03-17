@@ -6,7 +6,7 @@ import {xldMockServer} from './xld-mock-server';
 gulp.task('e2e', gulp.series('start-xld-mock-server', 'dev-server', () =>
     gulp
         .src('test/**/*.js')
-        .pipe(testcafe({browsers: ['chrome:headless']}))
+        .pipe(testcafe({browsers: ['chrome:headless', 'firefox:headless']}))
         .on('end', () => {
             devServer.close();
             xldMockServer.close();
