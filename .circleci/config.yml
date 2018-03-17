@@ -7,8 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
-      - image: circleci/node:latest-browsers
+      - image: circleci/node:7.10-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -34,4 +33,7 @@ jobs:
         
       # run tests!
       - run: node_modules/gulp/bin/gulp.js e2e
+
+      - store_test_results:
+          path: /tmp/test-results
 
