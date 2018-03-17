@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+import * as getters from './getters';
 
 export interface AdvancedSearch {
     interfaces: string[];
@@ -57,6 +58,7 @@ const mutations = {
 };
 
 export default {
+    getters,
     state,
     mutations
 };

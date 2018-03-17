@@ -1,3 +1,4 @@
+import * as getters from './getters';
 import * as R from 'ramda';
 
 import {filterByAdvancedFilter} from '../../../../utils/filter-types';
@@ -33,6 +34,7 @@ const mutations = {
 };
 
 export default {
+    getters,
     state,
     mutations
 };

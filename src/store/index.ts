@@ -6,7 +6,6 @@ import search from './types/modules/search/search';
 import selections from './types/modules/selections/selections';
 import types from './types/modules/types/types';
 import * as actions from './types/actions';
-import * as getters from './types/getters';
 import {localeMessages} from '../lang/type-system-explorer-lang';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -24,7 +23,6 @@ Vue.use(VueLocale,
 
 export default new Vuex.Store({
     actions,
-    getters,
     modules: {
         search,
         selections,

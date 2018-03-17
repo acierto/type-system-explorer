@@ -1,3 +1,4 @@
+import * as getters from './getters';
 import * as R from 'ramda';
 
 export interface State {
@@ -25,6 +26,7 @@ const mutations = {
 };
 
 export default {
+    getters,
     state,
     mutations
 };
