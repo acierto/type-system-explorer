@@ -1,10 +1,10 @@
 <template>
     <div>
         <multi-select
-                v-model="chosenInterfaces"
+                v-model="chosenSuperTypes"
                 :multiple="true"
-                :options="allInterfaces"
-                :placeholder="'selectInterfacesPlaceholder' | format-message">
+                :options="allSuperTypes"
+                :placeholder="'selectSuperTypesPlaceholder' | format-message">
         </multi-select>
     </div>
 </template>
@@ -17,20 +17,20 @@
         components: {MultiSelect},
         computed: {
             ...mapGetters({
-                allInterfaces: 'getAllInterfaces',
-                selectedInterfaces: 'getSelectedInterfaces'
+                allSuperTypes: 'getAllSuperTypes',
+                selectedSuperTypes: 'getSelectedSuperTypes'
             }),
-            chosenInterfaces: {
-                get: function() {
-                    return this.selectedInterfaces;
+            chosenSuperTypes: {
+                get: function () {
+                    return this.selectedSuperTypes;
                 },
                 set: function (event) {
-                    this.updateAdvancedSearchInterfaces(event);
+                    this.updateAdvancedSearchSuperTypes(event);
                 }
             }
         },
         methods: mapActions([
-            'updateAdvancedSearchInterfaces'
+            'updateAdvancedSearchSuperTypes'
         ])
     }
 </script>

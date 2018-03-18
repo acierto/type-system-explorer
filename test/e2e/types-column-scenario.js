@@ -32,3 +32,20 @@ test('Should be able to search types', async t => {
 
     await Selector('.AdvancedSearchModal---applied-advanced-filter-icon').with({ visibilityCheck: true })();
 });
+
+test('Escape in advanced search dialog should not change results', async t => {
+    await t
+        .click('.AdvancedSearchModal---filter-icon')
+        .expect(Selector('.modal-title').innerText).eql('Advanced Search Modal')
+        .typeText('[placeholder="Select interfaces"]', 'template.was.Node')
+        .pressKey('enter')
+        .typeText('[placeholder="Select property names"]', 'deploymentSubSubGroup')
+        .pressKey('enter')
+        .typeText('[placeholder="Select supertypes"]', 'udm.Template')
+        .pressKey('enter')
+        .click('.apply-search-criteria')
+        .expect(Selector('.ItemsCount---message').innerText).eql('Found 2 type(s)')
+        .click('.AdvancedSearchModal---applied-advanced-filter-icon')
+        .expect(Selector('.modal-title').innerText).eql('Advanced Search Modal')
+        // TODO: TBD
+});

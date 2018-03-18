@@ -21,7 +21,7 @@
     import {mapGetters} from 'vuex';
     import FilterByPropertyNames from './FilterByPropertyNames.vue';
     import FilterByInterfaces from './FilterByInterfaces.vue';
-    import FilterBySuperTypes from './FilterBysuperTypes.vue';
+    import FilterBySuperTypes from './FilterBySuperTypes.vue';
 
     export default {
         components: {FilterByInterfaces, FilterByPropertyNames, FilterBySuperTypes},

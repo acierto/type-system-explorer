@@ -1,9 +1,9 @@
 <template>
     <div>
         <multi-select
+                v-model="chosePropertyNames"
                 :multiple="true"
-                :options="superTypes"
-                @input="updateAdvancedSearchPropertyNames"
+                :options="allPropertyNames"
                 :placeholder="'selectPropertyNamesPlaceholder' | format-message">
         </multi-select>
     </div>
@@ -15,9 +15,20 @@
 
     export default {
         components: {MultiSelect},
-        computed: mapGetters({
-            superTypes: 'getAllPropertyNames'
-        }),
+        computed: {
+            ...mapGetters({
+                allPropertyNames: 'getAllPropertyNames',
+                selectedPropertyNames: 'getSelectedPropertyNames'
+            }),
+            chosePropertyNames: {
+                get: function () {
+                    return this.selectedPropertyNames;
+                },
+                set: function (event) {
+                    this.updateAdvancedSearchPropertyNames(event);
+                }
+            }
+        },
         methods: mapActions([
             'updateAdvancedSearchPropertyNames'
         ])
