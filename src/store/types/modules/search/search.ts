@@ -9,7 +9,7 @@ export interface AdvancedSearch {
     [key: string]: string[];
 }
 
-export interface Search {
+export interface SearchCriteria {
     advancedSearch: { applied: AdvancedSearch, staged: AdvancedSearch };
     token: string;
 }
@@ -20,7 +20,7 @@ const initialSearch = {
     propertyNames: []
 };
 
-const state: Search = {
+const state: SearchCriteria = {
     advancedSearch: {
         applied: initialSearch,
         staged: initialSearch
@@ -29,30 +29,30 @@ const state: Search = {
 };
 
 const mutations = {
-    APPLY_ADVANCED_FILTER(state: Search) {
+    APPLY_ADVANCED_FILTER(state: SearchCriteria) {
         const applied = R.clone(state.advancedSearch.staged);
         state.advancedSearch = {
             applied,
             staged: initialSearch
         };
     },
-    CHANGE_SEARCH_TOKEN(state: Search, token: string) {
+    CHANGE_SEARCH_TOKEN(state: SearchCriteria, token: string) {
         state.token = token;
     },
-    RESET_STAGED_ADVANCED_FILTER(state: Search) {
+    RESET_STAGED_ADVANCED_FILTER(state: SearchCriteria) {
         const staged = R.clone(state.advancedSearch.applied);
         state.advancedSearch = {
             applied: staged,
             staged
         };
     },
-    UPDATE_ADVANCED_SEARCH_INTERFACES(state: Search, interfaces: string[]) {
+    UPDATE_ADVANCED_SEARCH_INTERFACES(state: SearchCriteria, interfaces: string[]) {
         state.advancedSearch = R.assocPath(['staged', 'interfaces'], interfaces, state.advancedSearch);
     },
-    UPDATE_ADVANCED_SEARCH_PROPERTY_NAMES(state: Search, propertyNames: string[]) {
+    UPDATE_ADVANCED_SEARCH_PROPERTY_NAMES(state: SearchCriteria, propertyNames: string[]) {
         state.advancedSearch = R.assocPath(['staged', 'propertyNames'], propertyNames, state.advancedSearch);
     },
-    UPDATE_ADVANCED_SEARCH_SUPERTYPES(state: Search, superTypes: string[]) {
+    UPDATE_ADVANCED_SEARCH_SUPERTYPES(state: SearchCriteria, superTypes: string[]) {
         state.advancedSearch = R.assocPath(['staged', 'superTypes'], superTypes, state.advancedSearch);
     }
 };

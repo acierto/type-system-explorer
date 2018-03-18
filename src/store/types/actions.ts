@@ -17,7 +17,7 @@ export const getTypes: Action<State, any> = (context: { commit: Commit }) => {
 
 export const applyAdvancedFilter: Action<State, any> = (context: { commit: Commit, rootState: any }, event: any) => {
     context.commit('APPLY_ADVANCED_FILTER', event);
-    context.commit('UPDATE_DISPLAYED_TYPES_BY_ADVANCED_SEARCH', context.rootState.search.advancedSearch.applied);
+    context.commit('UPDATE_DISPLAYED_TYPES', context.rootState.search);
     if (!R.isEmpty(context.rootState.types.displayedTypes)) {
         context.commit('CLEAR_SELECTIONS', event);
     }
@@ -47,7 +47,7 @@ export const searchByToken: Action<State, any> = (context: { commit: Commit, roo
     function action() {
         const token = event.target.value;
         context.commit('CHANGE_SEARCH_TOKEN', token);
-        context.commit('UPDATE_DISPLAYED_TYPES_BY_TOKEN', token);
+        context.commit('UPDATE_DISPLAYED_TYPES', context.rootState.search);
         if (R.isEmpty(context.rootState.types.displayedTypes)) {
             context.commit('CLEAR_SELECTIONS', event);
         }
