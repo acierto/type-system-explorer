@@ -10,7 +10,7 @@
             <filter-by-interfaces/>
             <filter-by-property-names/>
             <filter-by-super-types/>
-            <b-btn class="mt-3" variant="outline-danger" block @click="applyFilter">
+            <b-btn class="mt-3 apply-search-criteria" variant="outline-danger" block @click="applyFilter">
                 {{'applyButton' | format-message}}
             </b-btn>
         </b-modal>

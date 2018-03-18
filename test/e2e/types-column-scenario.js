@@ -1,7 +1,8 @@
 import {Selector} from 'testcafe';
+import {pluginPort} from '../../gulp/utils/config';
 
 fixture `Types Column`
-    .page `http://localhost:2222/`;
+    .page `http://localhost:${pluginPort}/`;
 
 const findItems = Selector(() => document.querySelectorAll('.TypeList---type-row span'));
 
@@ -16,8 +17,18 @@ test('Initial rendering of type column', async t => {
         .expect(findItems.nth(1).innerText).eql('aws.ec2.Cloud');
 });
 
-test('Should be able search types', async t => {
+test('Should be able to search types', async t => {
     await t
         .typeText('.TypeList---search input', 'aws')
         .expect(Selector('.ItemsCount---message').innerText).eql('Found 70 type(s)');
+
+    await t
+        .click('.AdvancedSearchModal---filter-icon')
+        .expect(Selector('.modal-title').innerText).eql('Advanced Search Modal')
+        .typeText('[placeholder="Select interfaces"]', 'template.udm.Container')
+        .pressKey('enter')
+        .click('.apply-search-criteria')
+        .expect(Selector('.ItemsCount---message').innerText).eql('Found 2 type(s)');
+
+    await Selector('.AdvancedSearchModal---applied-advanced-filter-icon').with({ visibilityCheck: true })();
 });
