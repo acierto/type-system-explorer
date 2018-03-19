@@ -19,7 +19,7 @@
 <script lang="ts">
     import Vue from 'vue';
     import {mapGetters} from 'vuex';
-    import * as R from 'ramda';
+    import {sortKeys} from '../utils/sort-utils';
 
     export default Vue.extend({
         computed: mapGetters({
@@ -27,11 +27,7 @@
         }),
         methods: {
             getSortedKeyValues: function (this: any) {
-                return R.pipe(
-                    R.keys,
-                    R.sort((v1: string, v2: string) => v1.localeCompare(v2)),
-                    R.map((key: string) => ({key, value: this.additionalTypeInformation[key]}))
-                )(this.additionalTypeInformation);
+                return sortKeys(this.additionalTypeInformation);
             }
         }
     });
@@ -73,8 +69,8 @@
     }
 
     .title {
-        font-size: 20px;
-        padding: 15px;
+        font-size: 18px;
+        padding: 7px;
         text-align: center;
     }
 </style>

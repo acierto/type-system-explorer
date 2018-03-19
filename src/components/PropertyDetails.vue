@@ -1,11 +1,12 @@
 <template>
     <div :class="$style['property-details']">
         <div :class="$style['section-title']">{{'propertyDetailsTitle' | format-message}}</div>
+        <items-count :count="countAttributes" messageKey="foundCountAttributesMessage"/>
         <div :class="$style['property-details-map']">
             <div :class="$style['property-details-content']">
                 <div
                         :class="$style['property-details-row']"
-                        v-for="(value, key) in selectedProperty">
+                        v-for="{key, value} in selectedProperty">
                     <span :title="value" :class="$style['property-key']">
                         {{key}}
                     </span>
@@ -19,13 +20,21 @@
 </template>
 
 <script>
+    import * as R from 'ramda';
+    import ItemsCount from './ItemsCount.vue';
     import Vue from 'vue';
     import {mapGetters} from 'vuex';
 
     export default Vue.extend({
-        computed: mapGetters({
-            selectedProperty: 'getSelectedProperty'
-        })
+        components: {ItemsCount},
+        computed: {
+            ...mapGetters({
+                selectedProperty: 'getSelectedProperty'
+            }),
+            countAttributes: function () {
+                return R.keys(this.selectedProperty).length;
+            }
+        }
     });
 </script>
 
@@ -33,6 +42,7 @@
     .property-details {
         composes: ts-flex-column from '../styles/flex.css';
         height: inherit;
+        width: 400px;
     }
 
     .section-title {
@@ -42,6 +52,8 @@
     .property-details-map {
         composes: ts-table from '../styles/table.css';
         height: inherit;
+        margin: inherit;
+        width: 400px;
     }
 
     .property-details-content {
