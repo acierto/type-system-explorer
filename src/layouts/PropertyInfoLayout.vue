@@ -25,11 +25,7 @@
 
 <style module>
     .property-info-layout {
-        display: flex;
-        flex-basis: auto;
-        flex-flow: column nowrap;
-        flex-grow: 1;
-        width: auto;
+        composes: ts-flex-column from '../styles/flex.css';
+        height: inherit;
     }
-
 </style>

@@ -32,6 +32,7 @@
 <style module>
     .property-details {
         composes: ts-flex-column from '../styles/flex.css';
+        height: inherit;
     }
 
     .section-title {
@@ -40,7 +41,7 @@
 
     .property-details-map {
         composes: ts-table from '../styles/table.css';
-        height: 100%;
+        height: inherit;
     }
 
     .property-details-content {
