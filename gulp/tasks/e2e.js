@@ -10,7 +10,7 @@ const runTestCafe = (browsers, onEnd = R.F) =>
         .src('test/**/*.js')
         .pipe(testcafe({
             browsers,
-            screenshotsPath: `${projectDir}/.screenshots`,
+            screenshotsPath: `${projectDir}/output/screenshots`,
             takeScreenshotsOnFail: true
         }))
         .on('end', onEnd);

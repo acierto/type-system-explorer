@@ -1,8 +1,8 @@
-.screenshots
 .DS_Store
 .idea
 node_modules/
 dist/
 npm-debug.log*
+output/
 yarn-debug.log*
 yarn-error.log*
