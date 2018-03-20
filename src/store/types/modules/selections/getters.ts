@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import {sortKeys} from '../../../../utils/sort-utils';
+import {sortByName, sortKeys} from '../../../../utils/sort-utils';
 
 export const getAdditionalTypeInformation = (state: any) => {
     const selectedType = R.path(['selectedType'], state);
@@ -15,5 +15,6 @@ export const getSelectedProperty = (state: any) => sortKeys(R.pathOr({}, ['selec
 export const getSelectedPropertyName = (state: any) => R.pathOr([], ['selectedProperty', 'name'], state);
 
 export const getSelectedTypeInterfaces = (state: any) => R.pathOr([], ['selectedType', 'interfaces'], state);
-export const getSelectedTypeProperties = (state: any) => R.pathOr([], ['selectedType', 'properties'], state);
+export const getSelectedTypeProperties = (state: any) =>
+    sortByName(R.pathOr([], ['selectedType', 'properties'], state));
 export const getSelectedTypeSuperTypes = (state: any) => R.pathOr([], ['selectedType', 'superTypes'], state);

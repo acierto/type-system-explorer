@@ -1,5 +1,7 @@
 import * as R from 'ramda';
 
+export const sortByName = R.sortBy(R.compose(R.toLower, R.prop('name')));
+
 export const sortArray = R.pipe(
     R.sort((v1: string, v2: string) => v1.localeCompare(v2))
 );
