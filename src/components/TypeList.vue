@@ -70,7 +70,7 @@
     .search input {
         font-size: 13px;
         margin: 0 0 0 5px;
-        padding: 9px 10px 9px 28px;
+        padding: 9px 30px 9px 28px;
         width: 211px;
     }
 
