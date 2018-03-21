@@ -1,6 +1,6 @@
 {
   "name": "type-system-explorer",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Type System Explorer for XebiaLabs products",
   "author": "Bogdan Nechyporenko <bnechyporenko@xebialabs.com>",
   "license": "MIT",
