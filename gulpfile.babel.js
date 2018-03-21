@@ -1,3 +1,4 @@
+import './gulp/tasks/clean';
 import './gulp/tasks/xld-mock-server';
 import './gulp/tasks/dev-server';
 import './gulp/tasks/jest';
