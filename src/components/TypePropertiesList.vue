@@ -9,7 +9,7 @@
                     v-for="p in properties"
                     @click="selectProperty">
                 <span :data-value="p.name" :title="p.name">
-                    {{p.name}}
+                    {{p.name}} <span v-if="p.required" :class="$style['required']">*</span>
                 </span>
             </div>
         </div>
@@ -69,6 +69,10 @@
     .property-row span {
         color: #449d44;
         font-weight: bold;
+    }
+
+    .property-row span .required {
+        color: red;
     }
 
     .property-row:hover span {
