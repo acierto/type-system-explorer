@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <top-plugin-panel/>
+        <top-panel/>
         <div class="vertical-split">
             <div class="horizontal-split">
                 <type-list/>
@@ -14,14 +14,14 @@
 
 <script>
     import TypeList from './components/TypeList.vue'
-    import TopPluginPanel from './components/TopPluginPanel.vue'
+    import TopPanel from './components/TopPanel.vue'
     import TypePropertiesList from './components/TypePropertiesList.vue'
     import TypeInfoLayout from './layouts/TypeInfoLayout'
     import PropertyInfoLayout from './layouts/PropertyInfoLayout';
 
     export default {
         components: {
-            PropertyInfoLayout, TypeList, TypePropertiesList, TypeInfoLayout, TopPluginPanel
+            PropertyInfoLayout, TypeList, TypePropertiesList, TypeInfoLayout, TopPanel
         }
     }
 </script>
