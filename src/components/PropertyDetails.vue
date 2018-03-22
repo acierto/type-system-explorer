@@ -42,6 +42,7 @@
     .property-details {
         composes: ts-flex-column from '../styles/flex.css';
         height: inherit;
+        margin-top: 40px;
         width: 400px;
     }
 
@@ -52,7 +53,7 @@
     .property-details-map {
         composes: ts-table from '../styles/table.css';
         height: inherit;
-        margin: inherit;
+        margin: 0;
         width: 400px;
     }
 

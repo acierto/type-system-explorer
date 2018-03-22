@@ -10,4 +10,5 @@ declare module "*.json" {
 
 declare module 'bootstrap-vue';
 declare module 'debounce';
+declare module 'downloadjs';
 declare module 'ramda';

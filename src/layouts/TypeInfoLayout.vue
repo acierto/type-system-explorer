@@ -1,10 +1,7 @@
 <template>
     <div :class="$style['type-info-layout']" v-if="isTemplateDisplayed()">
-        <div :class="$style['top-panel']">
-            <type-interfaces-list></type-interfaces-list>
-            <type-super-types-list></type-super-types-list>
-        </div>
-        <additional-type-information></additional-type-information>
+        <type-interfaces-list/>
+        <type-super-types-list/>
     </div>
 </template>
 
@@ -18,12 +15,11 @@
     export default Vue.extend({
         components: {AdditionalTypeInformation, TypeInterfacesList, TypeSuperTypesList},
         computed: mapGetters({
-            hasSelectedType: 'hasSelectedType',
-            hasSelectedProperty: 'hasSelectedProperty'
+            hasSelectedType: 'hasSelectedType'
         }),
         methods: {
             isTemplateDisplayed: function () {
-                return this.hasSelectedType && !this.hasSelectedProperty;
+                return this.hasSelectedType;
             }
         }
     })
@@ -34,9 +30,8 @@
     .type-info-layout {
         display: flex;
         flex-basis: auto;
-        flex-flow: column nowrap;
+        flex-flow: row nowrap;
         flex-grow: 1;
-        width: auto;
     }
 
     .top-panel {
@@ -48,6 +43,5 @@
         max-height: 100%;
         min-height: 0;
         overflow: auto;
-        width: auto;
     }
 </style>

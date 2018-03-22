@@ -34,6 +34,7 @@
 <style module>
     .type-column {
         composes: ts-column from '../styles/column.css';
+        height: inherit;
     }
 
     .type-column-title {

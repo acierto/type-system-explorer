@@ -4,7 +4,7 @@
         <items-count :count="countTypes" messageKey="foundCountTypesMessage" />
         <div :class="$style['search']">
             <i i class="fa fa-search" :class="$style['search-icon']" aria-hidden="true"></i>
-            <input type="text" placeholder="Search" @input="searchByToken">
+            <input type="text" :placeholder="searchPlaceholder" @input="searchByToken">
             <advanced-search-modal></advanced-search-modal>
         </div>
         <div :class="$style['type-result-column']">
@@ -27,6 +27,8 @@
     import AdvancedSearchModal from './advanced-search/AdvancedSearchModal.vue';
     import ItemsCount from './ItemsCount.vue';
     import {mapActions, mapGetters} from 'vuex';
+    import {formatMessage} from 'vue-ts-locale';
+    import {localeMessages} from '../lang/type-system-explorer-lang';
 
     export default Vue.extend({
         components: {AdvancedSearchModal, ItemsCount},
@@ -37,6 +39,9 @@
             }),
             countTypes: function () {
                 return R.length(this.allTypes);
+            },
+            searchPlaceholder: function (this: any) {
+                return formatMessage(localeMessages.searchTypePlaceholder);
             }
         },
         methods: mapActions([
